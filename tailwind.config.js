@@ -28,6 +28,10 @@ module.exports = {
       puregreys: {
         5: "#F9F9F9",
       },
+      caribbeangreen: {
+        700: "#014A32",
+        300: "#05A77B",
+      }
     },
     extend: {},
   },

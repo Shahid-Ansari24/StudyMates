@@ -1,7 +1,8 @@
-html, body {  
-  overflow-x: hidden;
-}
+/* html, body {  
+
+} */
 
 .homepage_bg {
   background: url("../src/assets/images/bghome.svg");
+  overflow-x: hidden;
 }
