@@ -7,15 +7,17 @@ import homePageBanner from "../assets/images/homePageBanner.mp4";
 import CodeBlocks from "../components/core/HomePage/CodeBlocks";
 import TimeLineSection from "../components/core/HomePage/TimeLineSection";
 import LearningLanguageSection from "../components/core/HomePage/LearningLanguageSection";
+import InstructorSection from "../components/core/HomePage/InstructorSection.jsx";
+import ExploreMore from "../components/core/HomePage/ExploreMore.jsx";
 
 // Pending -> Create Footer
 const Home = () => {
   return (
     <div>
       {/* Section 1 */}
-      <div className="relative mx-auto flex flex-col w-11/12 max-w-maxContent items-center justify-between text-white">
+      <div className="relative mx-auto font-inter flex flex-col w-11/12 max-w-maxContent items-center justify-between text-white">
         <Link to="/signup">
-          <div className="group mt-16 p-1 mx-auto rounded-full bg-richblack-300 font-bold text-richblack-200 transition-all duration-200 hover:scale-95 w-full">
+          <div className="group mt-16 p-1 mx-auto rounded-full bg-richblack-1000 font-bold text-richblack-200 transition-all duration-200 hover:scale-95 w-full">
             <div className="flex flex-row items-center shadow-2xl gap-2 rounded-full px-10 py-[5px] group-hover:bg-richblack-900">
               <p>Become an Instructor</p>
               <FaArrowRight />
@@ -126,6 +128,8 @@ const Home = () => {
             codeColor={"text-yellow-25"}
           />
         </div>
+
+        <ExploreMore/>
       </div>
 
       {/* ----------- Section 2 ------------ */}
@@ -173,8 +177,16 @@ const Home = () => {
       </div>
 
       {/* Section 3 */}
+      <div className="w-11/12 mx-auto mx-w-maxContent flex flex-col items-center justify-between gap-8 first-letter bg-richblack-900 text-white">
+      
+              <InstructorSection/>
 
-      {/* Section 4 */}
+              <h2 className="text-center text-4xl font-semibold mt-10">Review from Other Learners</h2>
+
+              {/* Review Slider */}
+      </div>
+
+      {/* Section 4 (Footer) */}
     </div>
   );
 };
