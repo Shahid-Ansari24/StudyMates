@@ -1,3 +1,295 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.top-button-div{
+    margin-top: 32px;
+  }
+  
+  .top-button {
+    background: none;
+    color: rgb(182, 182, 182);
+    font-size: 16px;
+    border: none;
+    background-color: #161d29;
+    padding: 13px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  
+  .templateDiv {
+    /* border: 2px solid green; */
+    width: 1067px;
+    margin: auto;
+    padding: 48px 0;
+    display: flex;
+    /* justify-content: space-between; */
+  }
+  
+  .templateLeft{
+    flex-basis: 48%;
+    /* width: 450px; */
+    /* border: 2px solid green; */
+  }
+  
+  .templateRight {
+    flex-basis: 55%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-left: 111px;
+    left: 54px;
+    top: 30px;
+  }
+  
+  .desc1 {
+    display: inline-block;
+    font-size: 19px;
+    color: rgb(182, 182, 182);
+    margin-top: 0;
+  }
+  
+  .desc2 {
+    display: inline-block;
+    font-size: 19px;
+    font-style: italic;
+    color: #2596be;
+  }
+  
+  .templateTitle {
+    color: rgb(242, 242, 242);
+    font-weight: 600;
+  }
+  
+  .star {
+    color: red;
+  }
+  
+  
+  form{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label p{
+    font-size: 15px;
+    font-weight: 450;
+    margin-bottom: 6px;
+    color: rgb(223, 223, 223);
+  }
+  
+  input {
+      border: none;
+      border-bottom: 0.3px solid grey;
+      width: 425px;
+      height: 40px;
+      border-radius: 7px;
+      background-color: #161d29;
+      font-size: 16px;
+      padding: 4px 8px;
+      color: rgb(194, 194, 194);
+      font-weight: 300;
+      letter-spacing: 2;
+  }
+  
+  .password-label {
+    position: relative;
+  }
+  
+  
+  .login-eye {
+    position: absolute;
+    top: 53px;
+    right: 20px;
+  }
+  
+  .login-eye-i {
+    font-size: x-large;
+    color: rgb(182, 182, 182);
+  }
+  
+  .login-forget {
+    position: absolute;
+    color: #2596be;
+    top: 79px;
+    right: -14px;
+    width: 115px;
+    font-size: 13px;
+  }
+  
+  
+  .sign-in {
+    width: 442px;
+    height: 40px;
+    border-radius: 7px;
+    padding: 4px 8px;
+    margin-top: 60px;
+    background-color: #ffd60a;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .or {
+    display: flex;
+    justify-content: space-between;
+    width: 442px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+  }
+  
+  .orLine {
+    width: 200px;
+    height: 1px;
+    margin-top: 11px;
+    background-color: #5b5b5b;
+    opacity: 0.5;
+  }
+  
+  .orName {
+    color: #5b5b5b;
+    opacity: 0.5;
+  }
+  
+  .login-button {
+    display: flex;
+    width: 443px;
+    justify-content: center;
+    border-radius: 7px;
+    background-color: #000814;
+    border: none;
+    border: 1px solid rgb(45, 44, 44);
+    cursor: pointer;
+  }
+  
+  .login-google {
+    font-size: 25px;
+    margin-top: 12px;
+    margin-right: 5px;
+  }
+  
+  .login-button p{
+    margin-left: 5px;
+    color: rgb(194, 194, 194);
+    font-size: 16px;
+  }
+  
+  .templateRight img{
+    position: absolute;
+    height: 406px;  
+    width: 450px;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  .image{
+    top: -15px;
+    left: -15px;
+  }
+  
+  .signUp-div {
+    width: 450px;
+    /* border: 2px solid red; */
+  }
+  
+  .signUpName {
+    display: flex;
+  }
+  
+  
+  .signUpName-label {
+    width: 225px;
+  }
+  
+  .signUpName-label input {
+    width: 200px;
+  }
+  
+  .signUp-buttons {
+    display: flex;
+    background-color: #161d29;
+    width: fit-content;
+    padding: 7px 9px; 
+    border-radius: 25px;
+  }
+  
+  .signUp-buttons button {
+    border: none;
+    padding: 10px 20px;
+    color: rgb(194, 194, 194);
+    font-size: 16px;
+    font-weight: 300;
+    border-radius: 25px;
+  }
+  
+  .signUp-form {
+    margin-top: 0;
+  }
+  
+  .signUp-Password {
+    display: flex;
+  }
+  
+  .signup-password-label {
+    position: relative;
+    width: 225px;
+  }
+  
+  .signup-password-label input {
+    width: 200px;
+  }
+  
+  .signUp-eye {
+    position: absolute;
+    top: 55px;
+    right: 17px;
+    font-size: x-large;
+    color: rgb(182, 182, 182);
+  }
+  
+  .signup-password-label-2 {
+    position: relative;
+    width: 225px;
+  }
+  
+  .signup-password-label-2 input {
+    width: 200px;
+  }
+  
+  .signUp-eye-2 {
+    position: absolute;
+    top: 55px;
+    right: 17px;
+    font-size: x-large;
+    color: rgb(182, 182, 182);
+  }
+  
+  .createAccount {
+    margin-top: 33px;
+    background-color: #ffd60a;
+    border-radius: 7px;
+    padding: 12px 8px;
+    font-size: 16px;
+    font-weight: 540;
+  }
+  
+  
+  .buttonStudent {
+    background-color: #000814;
+    color: #ffffff;
+  }
+  
+  .buttonInstructor {
+    background-color: #000814;
+    color: #ffffff;
+  }
+  
+  .buttonStudentCancel {
+    background: none;
+  }
+  
+  
+  .buttonInstructorCancel {
+    background: none;
+  }
