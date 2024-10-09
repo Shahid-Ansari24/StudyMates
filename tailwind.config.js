@@ -42,6 +42,11 @@ module.exports = {
       caribbeangreen: {
         700: "#014A32",
         300: "#05A77B",
+      },
+      brown: {
+        5: '#FFF4C4',
+        50: '#FFD166',
+        500: '#88662D'
       }
     },
     extend: {},

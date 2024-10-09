@@ -3,8 +3,14 @@ import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai"
 import { useState } from 'react';
 import toast from 'react-hot-toast'
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { setSignupData } from '../../../slice/authSlice';
+import { sendOtp } from '../../../services/operation/authAPI';
 
 const SignUpForm = () => {
+
+  const dispatch = useDispatch();
+
 
     const [formData, setFormData] = useState({
         firstName: '', lastName: "", email: '', password: '', confirmPassword: ''
@@ -13,7 +19,7 @@ const SignUpForm = () => {
     const [showPassword, setShowPassword] = useState(false)
     const [createPassword, setCreatePassword] = useState(false);
     const [confirmPassword, setconfirmPassword] = useState(false);
-    const [accountType, setAccountType] = useState("student");
+    const [accountType, setAccountType] = useState("Student");
 
     const navigate = useNavigate();
 
@@ -34,17 +40,15 @@ const SignUpForm = () => {
         return;
       }
 
-      navigate("/Dashboard");
-
       const finalData = {
         ...formData,
         accountType
       }
 
-      console.log('printing account data');
-      console.log(finalData);      
+      dispatch(setSignupData(finalData));
+      dispatch(sendOtp(formData.email, navigate))
 
-      toast.success("Account Created");
+      navigate("/verify-email");
     }
 
   return (
@@ -52,10 +56,10 @@ const SignUpForm = () => {
 
       {/* student-Instructor tab */}
       <div className='signUp-buttons'>
-        <button onClick={() => setAccountType("student")} className={accountType === 'student' ? ('buttonStudent') : ('buttonStudentCancel')}>
+        <button onClick={() => setAccountType("Student")} className={accountType === 'Student' ? ('buttonStudent') : ('buttonStudentCancel')}>
           Student
         </button>
-        <button onClick={() => setAccountType("instructor")} className={`${accountType === 'instructor' ? ('buttonInstructor') : ('buttonInstructorCancel')}`}>
+        <button onClick={() => setAccountType("Instructor")} className={`${accountType === 'Instructor' ? ('buttonInstructor') : ('buttonInstructorCancel')}`}>
           Instructor
         </button>
       </div>
