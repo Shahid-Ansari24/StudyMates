@@ -12,7 +12,7 @@ exports.contactUs = async ( req, res ) => {
             });
         }
 
-        const adminResponse = await mailSender(process.env.MAIL_USER, 'New Enquiry Come', `firstName: ${firstName}, lastName: ${lastName}, email: ${email}, phoneNumber: ${phoneNumber}, message: ${message}`);
+        const adminResponse = await mailSender(process.env.MAIL_USER, 'New Enquiry Came', `firstName: ${firstName}, lastName: ${lastName}, email: ${email}, phoneNumber: ${phoneNumber}, message: ${message}`);
 
         const customerResponse = await mailSender(email, 'Your Enquiry Has Been Registered', 'We Will Contact You As Soon As Possible');
 

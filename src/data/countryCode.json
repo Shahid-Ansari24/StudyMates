@@ -185,7 +185,7 @@
   },
   {
     "country": "Dominican Republic",
-    "code": "+1-809, +1-829, +1-849"
+    "code": "+1-809"
   },
   {
     "country": "Ecuador",
@@ -564,16 +564,8 @@
       "code": "+250"
     },
     {
-      "country": "Saint Kitts and Nevis",
-      "code": "+1-869"
-    },
-    {
       "country": "Saint Lucia",
       "code": "+1-758"
-    },
-    {
-      "country": "Saint Vincent and the Grenadines",
-      "code": "+1-784"
     },
     {
       "country": "Samoa",

@@ -93,6 +93,30 @@
       font-weight: 300;
       letter-spacing: 2;
   }
+
+  select {
+    border: none;
+    border-bottom: 0.3px solid grey;
+    height: 40px;
+    border-radius: 7px;
+    background-color: #161d29;
+    font-size: 16px;
+    /* padding: 4px 8px; */
+    color: rgb(194, 194, 194);
+    font-weight: 300;
+  }
+
+  textarea {
+    border: none;
+    border-bottom: 0.3px solid grey;
+    border-radius: 7px;
+    background-color: #161d29;
+    font-size: 16px;
+    padding: 4px 8px;
+    color: rgb(194, 194, 194);
+    font-weight: 300;
+    letter-spacing: 2;
+  }
   
   .password-label {
     position: relative;

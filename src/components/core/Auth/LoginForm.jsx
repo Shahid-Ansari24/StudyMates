@@ -31,7 +31,7 @@ const LoginForm = () => {
         event.preventDefault();
         dispatch(login(formData.email, formData.password, navigate))
         toast.success("Logged In")
-        navigate("/Dashboard")
+        navigate("/Dashboard/My-Profile")
     }
 
   return (
