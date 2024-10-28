@@ -125,8 +125,8 @@
   
   .login-eye {
     position: absolute;
-    top: 53px;
-    right: 20px;
+    top: 38px;
+    right: 30px;
   }
   
   .login-eye-i {
@@ -266,8 +266,8 @@
   
   .signUp-eye {
     position: absolute;
-    top: 55px;
-    right: 17px;
+    top: 38px;
+    right: 30px;
     font-size: x-large;
     color: rgb(182, 182, 182);
   }
@@ -283,8 +283,8 @@
   
   .signUp-eye-2 {
     position: absolute;
-    top: 55px;
-    right: 17px;
+    top: 38px;
+    right: 30px;
     font-size: x-large;
     color: rgb(182, 182, 182);
   }

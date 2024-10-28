@@ -23,7 +23,11 @@ const IconBtn = ({
                     </span>
                     {children}
                 </>
-            ) : ({text})
+            ) : (
+                <span>
+                    {text}
+                </span>
+            )
         }
     </button>
   )

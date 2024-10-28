@@ -1,12 +1,14 @@
 import {toast} from 'react-hot-toast';
 import {setLoading, setToken} from "../../slice/authSlice";
+import { setUser } from '../../slice/profileSlice';
 import {apiConnector} from '../apiConnector';
 import { endpoints } from '../apis';
 
 const { RESETPASSWORDTOKEN_API,
     RESETPASSWORD_API,
     SENDOTP_API,
-    SIGNUP_API
+    SIGNUP_API, 
+    LOGIN_API
  } = endpoints;
 
 
@@ -50,8 +52,8 @@ export function signUp(accountType, firstName, lastName, email, password, confir
                 throw new Error(response.data.message);
             }
 
-            toast.success("Password has been reset successfully");
-            navigate("/ ");
+            // toast.success("Password has been reset successfully");
+            navigate("/auth/login");
         } catch (error) {
             console.log("SIGNUP API ERROR---", error);
             toast.error("Could not signup")
@@ -63,18 +65,24 @@ export function login(email, password, navigate) {
     return async (dispatch) => {
         // const toastId = toast.loading("Loading")
         // dispatch(setLoading(true))
-        // try {
-        //     const response = await apiConnect("POST", LOGIN_API, {email, password})
+        try {
+            const response = await apiConnector("POST", LOGIN_API, {email, password});
 
-        //     console.log("LOGIN RESPONSE---", response);
-        // }
+            localStorage.setItem("token", response.data.token)
+            localStorage.setItem("user", JSON.stringify(response.data.user))
+            dispatch(setToken(response.data.token))
+            dispatch(setUser(response.data.user))
+            navigate("/Dashboard/My-Profile")
+        } catch (error) {
+            console.log("LOGIN ERROR----", error);
+        }
     }
 }
 
 export function logout(navigate) {
     return (dispatch) => {
-        // dispatch(setToken(null))
-        // dispatch(setUser(null))
+        dispatch(setToken(null))
+        dispatch(setUser(null))
         // dispatch(resetCart())
         localStorage.removeItem("token")
         localStorage.removeItem("user")

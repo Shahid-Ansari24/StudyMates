@@ -10,6 +10,10 @@ import UpdatePassword from './pages/UpdatePassword';
 import VerifyEmail from './pages/VerifyEmail';
 import About from './pages/About';
 import MyProfile from './components/core/Dashboard/MyProfile';
+import PrivateRoute from './components/core/Auth/PrivateRoute';
+import Dashboard from './pages/Dashboard';
+import Error from './pages/Error';
+import Settings from './components/core/Dashboard/Settings/index';
 
 function App() {
   return (
@@ -19,14 +23,14 @@ function App() {
 
         <Route path='/' element={<Home/>}/>
 
-        <Route path='/login' 
+        <Route path='auth/login' 
         element={
           <OpenRoute>
             <Login/>
           </OpenRoute>
         }/>
 
-        <Route path='/signup' 
+        <Route path='auth/signup' 
         element={
           <OpenRoute>
             <SignUp/>
@@ -63,12 +67,32 @@ function App() {
           </OpenRoute>
         }/>
 
-        <Route path='/Dashboard/My-Profile'
-          element={
-              <MyProfile />
-          }
+        <Route 
+        element={
+          <PrivateRoute>
+            <Dashboard/>
+          </PrivateRoute>
+        }
         >
+          <Route path='/Dashboard/My-Profile'
+            element={
+                <MyProfile />
+            }/>
+          <Route path='/Dashboard/Settings'
+            element={
+                <Settings/>
+            }/>
+          
         </Route>
+
+
+
+
+
+        <Route path='*'
+        element={
+          <Error/>
+        }/>
 
       </Routes>
     </div>
