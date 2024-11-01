@@ -8,6 +8,11 @@ export const endpoints = {
     RESETPASSWORD_API: BASE_URL + "/resetpassword",
 }
 
+// export const profileEndpoints = {}
+
+// export const studentEndpoints = {}
+
+// This to be change to courseEndPoints
 export const categories = {
     CATEGORIES_API: BASE_URL + "course/showAllCategories",
 }

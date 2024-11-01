@@ -55,10 +55,10 @@ const Sidebar = () => {
             "btn1Handler": () => dispatch(logout(navigate)),
             "btn2Handler": () => setConfirmationModal(null)
           })}
-          className='text-sm font-medium text-richblack-300'
+          className='text-sm font-medium text-richblack-300 px-8 py-2'
         >
 
-          <div flex item-center gap-x-2>
+          <div className='flex item-center gap-x-2 items-center'>
             <VscSignOut />
             <span>Logout</span>
           </div>
