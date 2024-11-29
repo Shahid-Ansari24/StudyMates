@@ -1,8 +1,9 @@
-import {toast} from 'react-hot-toast';
 import {setLoading, setToken} from "../../slice/authSlice";
 import { setUser } from '../../slice/profileSlice';
 import {apiConnector} from '../apiConnector';
 import { endpoints } from '../apis';
+import toast from 'react-hot-toast'
+
 
 const { RESETPASSWORDTOKEN_API,
     RESETPASSWORD_API,
@@ -72,9 +73,11 @@ export function login(email, password, navigate) {
             localStorage.setItem("user", JSON.stringify(response.data.user))
             dispatch(setToken(response.data.token))
             dispatch(setUser(response.data.user))
+            toast.success("Logged In")
             navigate("/Dashboard/My-Profile")
         } catch (error) {
             console.log("LOGIN ERROR----", error);
+            toast.success(error?.response?.data?.message)
         }
     }
 }

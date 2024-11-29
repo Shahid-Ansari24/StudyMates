@@ -14,6 +14,7 @@ const IconBtn = ({
     disabled={disabled}
     onClick={onClick}
     type={type}
+    className={customClasses}
     >
         {
             children ? (

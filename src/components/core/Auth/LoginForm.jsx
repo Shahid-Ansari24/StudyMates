@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai"
 import { Link, useNavigate } from 'react-router-dom'
-import toast from 'react-hot-toast'
 import { useDispatch } from 'react-redux'
 import {login} from '../../../services/operation/authAPI'
 
@@ -30,7 +29,6 @@ const LoginForm = () => {
     function submitHandler(event) {
         event.preventDefault();
         dispatch(login(formData.email, formData.password, navigate))
-        toast.success("Logged In")
     }
 
   return (

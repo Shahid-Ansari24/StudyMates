@@ -16,6 +16,7 @@ import Error from './pages/Error';
 import Settings from './components/core/Dashboard/Settings/index';
 import EnrolledCourses from './components/core/Dashboard/EnrolledCourses';
 import Cart from './components/core/Dashboard/Cart/index';
+import Instructor from './components/core/Dashboard/InstructorDashboard/Instructor';
 
 function App() {
   return (
@@ -91,6 +92,10 @@ function App() {
             <Route path='/Dashboard/Cart'
             element={
               <Cart/>
+            }/>
+            <Route path='/Dashboard/Instructor'
+            element={
+              <Instructor/>
             }/>
           
         </Route>

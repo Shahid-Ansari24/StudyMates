@@ -1,4 +1,5 @@
 const Profile = require("../models/Profile");
+const Course = require("../models/Course")
 const User = require("../models/User");
 const {uploadToCloudinary} = require("../utils/uploadToCloudinary");
 const dotenv = require("dotenv");
@@ -48,8 +49,6 @@ exports.updateProfile = async ( req, res ) => {
     } 
 }
 
-
-
 // delete account
 
 exports.deleteAccount = async ( req, res ) => {
@@ -94,7 +93,6 @@ exports.deleteAccount = async ( req, res ) => {
         });
     }
 }
-
 
 
 exports.getAllUserDetails = async ( req, res ) => {
@@ -159,5 +157,34 @@ exports.updateDisplayPicture = async ( req, res ) => {
             message: "Internal Server Error. Unable to Update Display Picture",
             error: error.message,
         });
+    }
+}
+
+// get enrolled courses
+
+exports.intructorDashboard = async ( req, res ) => {
+    try {
+        const courseDetails = await Course.find({instructor: req.user.id});
+
+        const courseData = courseDetails.map((course) => {
+            const totalStudentEnrolled = course.studentsEnrolled.length
+            const totalAmountGenerated = totalStudentEnrolled * course.price
+
+            // create a new object with the additional fields
+            const courseDataWithStats = {
+                _id: course._id,
+                courseName: course.courseName,
+                courseDescription: course.courseDescription,
+                totalStudentEnrolled,
+                totalAmountGenerated
+            }
+
+            return courseDataWithStats
+        })
+
+        res.status(200).json({course:courseData})
+    } catch ( error ) {
+        res.status(500).json({message: "Internal Server Error"})
+        console.log("instructorDashboard---", error)
     }
 }
