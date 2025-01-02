@@ -2,7 +2,10 @@ import toast from "react-hot-toast";
 import { apiConnector } from '../apiConnector'
 import { profileEndpoints } from "../apis";
 
-const {GET_INSTRUCTOR_DATA_API} = profileEndpoints;
+const {
+    GET_INSTRUCTOR_DATA_API,
+    UPDATE_PROFILE_PICTURE
+} = profileEndpoints;
 
 // getUserDetails
 
@@ -28,4 +31,21 @@ export async function getInstructorData(token) {
     }
     // toast.dismiss(toastId);
     return result;
+}
+
+// update profile picture
+export async function updateProfilePicture(formData, token) {
+    try {
+        const response = await apiConnector("PUT", UPDATE_PROFILE_PICTURE, formData, 
+            {
+                Authorization: `Bearer ${token}`,
+                'Content-Type': 'multipart/form-data'
+            }
+        );
+
+        return response?.image;
+    } catch (error) {
+        toast.error("Error while saving profile picture")
+        console.log("some error occured while changing profile picture---", error)
+    }
 }

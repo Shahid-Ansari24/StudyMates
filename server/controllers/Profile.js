@@ -123,6 +123,7 @@ exports.getAllUserDetails = async ( req, res ) => {
 
 exports.updateDisplayPicture = async ( req, res ) => {
     try {
+        console.log("req--", req)
         const displayPicture = req.files.displayPicture;
 
         if(!displayPicture) {

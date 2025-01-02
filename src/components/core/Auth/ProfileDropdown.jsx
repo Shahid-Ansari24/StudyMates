@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom';
 import { VscSignOut } from "react-icons/vsc";
@@ -8,6 +8,8 @@ const ProfileDropdown = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const {user}  = useSelector((state) => state.profile)
+
+  useEffect(() => console.log("user---", user), [user])
   return (
     <div className='relative group p-2'>
       <img src={user?.image} alt="User Profile Photo" 
