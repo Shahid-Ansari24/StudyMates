@@ -4,7 +4,8 @@ import { profileEndpoints } from "../apis";
 
 const {
     GET_INSTRUCTOR_DATA_API,
-    UPDATE_PROFILE_PICTURE
+    UPDATE_PROFILE_PICTURE,
+    UPDATE_PROFILE_DATA
 } = profileEndpoints;
 
 // getUserDetails
@@ -47,5 +48,18 @@ export async function updateProfilePicture(formData, token) {
     } catch (error) {
         toast.error("Error while saving profile picture")
         console.log("some error occured while changing profile picture---", error)
+    }
+}
+
+export async function updateProfile(formData, token) {
+    try {
+        const response = await apiConnector("PUT", UPDATE_PROFILE_DATA, formData, {
+            Authorization: `Bearer ${token}`
+        })
+        toast.success("profile updated successfully")
+        return response;
+    } catch (error) {
+        toast.error("Error while updating profile");
+        console.log("Error while updating profile--", error);
     }
 }

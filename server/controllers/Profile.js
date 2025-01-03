@@ -8,11 +8,11 @@ dotenv.config();
 exports.updateProfile = async ( req, res ) => {
     try {
         // get data
-        const { dateOfBirth="", about="", contactNumber, gender } = req.body;
+        const { dateOfBirth="", about="", contactNumber, gender, firstName, lastName } = req.body;
         const id = req.user.id;
-
+        console.log(contactNumber, gender, id)
         // vaidation
-        if(!contactNumber || !gender || !id) {
+        if(!contactNumber || !gender || !id || !firstName || !lastName) {
             return res.status(400).json({
                 success: false,
                 message: "All fields are required",
@@ -29,8 +29,11 @@ exports.updateProfile = async ( req, res ) => {
         profileDetails.about = about;
         profileDetails.gender = gender;
         profileDetails.contactNumber = contactNumber;
+        userDetails.firstName = firstName;
+        userDetails.lastName = lastName;
 
         await profileDetails.save();
+        await userDetails.save();
 
         // return response
         return res.status(200).json({
