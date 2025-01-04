@@ -57,7 +57,7 @@ export async function updateProfile(formData, token) {
             Authorization: `Bearer ${token}`
         })
         toast.success("profile updated successfully")
-        return response;
+        return response?.data.updatedUserDetails;
     } catch (error) {
         toast.error("Error while updating profile");
         console.log("Error while updating profile--", error);

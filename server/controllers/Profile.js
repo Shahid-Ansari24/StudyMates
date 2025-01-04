@@ -10,7 +10,7 @@ exports.updateProfile = async ( req, res ) => {
         // get data
         const { dateOfBirth="", about="", contactNumber, gender, firstName, lastName } = req.body;
         const id = req.user.id;
-        console.log(contactNumber, gender, id)
+
         // vaidation
         if(!contactNumber || !gender || !id || !firstName || !lastName) {
             return res.status(400).json({
@@ -35,11 +35,13 @@ exports.updateProfile = async ( req, res ) => {
         await profileDetails.save();
         await userDetails.save();
 
+        const updatedUserDetails = await User.findById(id).populate('additionalDetails');
+
         // return response
         return res.status(200).json({
             success: true,
             message: "Profile Updated Successfully",
-            profileDetails,
+            updatedUserDetails,
         });
 
     } catch ( error ) {

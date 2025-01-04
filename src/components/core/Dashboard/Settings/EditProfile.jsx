@@ -1,17 +1,21 @@
 import React, { useState} from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import CTAButton from '../../../core/HomePage/Button'
 import { updateProfile } from '../../../../services/operation/profileAPI'
+import {setUser} from '../../../../slice/profileSlice'
 
 const EditProfile = () => {
   const { user } = useSelector((state) => state.profile)
+  const { token } = useSelector((state) => state.auth)
+  const dispatch = useDispatch();
+
   const [personalInformation, setPersonalInformation] = useState({
     firstName: user?.firstName || '',
     lastName: user?.lastName || "",
-    dateOfBirth: user?.additionalDetails.dateOfBirth || "",
-    gender: user?.gender || 'Prefer not to say',
-    contactNumber: user?.additionalDetails.contactNumber || '',
-    about :user?.about || '',
+    dateOfBirth: user?.additionalDetails?.dateOfBirth || null,
+    gender: user?.additionalDetails?.gender || 'Prefer not to say',
+    contactNumber: user?.additionalDetails?.contactNumber || '',
+    about :user?.about || null,
   })
 
   const handleChange = (e) => {    
@@ -27,7 +31,7 @@ const EditProfile = () => {
     setPersonalInformation({
       firstName: user?.firstName || '',
       lastName: user?.lastName || "",
-      dateOfBirth: user?.additionalDetails.dateOfBirth || "",
+      dateOfBirth: user?.additionalDetails.dateOfBirth || null,
       gender: user?.gender || 'Prefer not to say',
       contactNumber: user?.additionalDetails.contactNumber || '',
       about :user?.about || '',
@@ -36,8 +40,8 @@ const EditProfile = () => {
 
   async function handleSave() {
     try {
-      const response = await updateProfile(personalInformation, user.token)
-      console.log('response--', response);
+      const response = await updateProfile(personalInformation, token)
+      dispatch(setUser(response))
     } catch (error) {
       console.log("some error occurred while saving--", error);
     }
@@ -79,8 +83,9 @@ const EditProfile = () => {
             <select 
             className='w-[26rem]' 
             onChange={handleChange}
+            value={personalInformation.gender}
             name='gender'>
-              <option value="">Prefer not to say</option>
+              <option value="prefer not to say">Prefer not to say</option>
               <option value="male">Male</option>
               <option value="female">Female</option>
               <option value="nonBinary">Non Binary</option>
@@ -94,6 +99,7 @@ const EditProfile = () => {
             <input type="number"
             name='contactNumber'
             onChange={handleChange}
+            value={personalInformation.contactNumber}
             placeholder='Enter Your Contact Number' />
           </div>
           <div>
@@ -101,6 +107,7 @@ const EditProfile = () => {
             <input type="text" 
             name='about'
             onChange={handleChange}
+            value={personalInformation.about}
             placeholder='Enter About Yourself'/>
           </div>
         </div>
