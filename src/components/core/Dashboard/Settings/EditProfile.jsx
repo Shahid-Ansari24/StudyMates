@@ -48,21 +48,20 @@ const EditProfile = () => {
   }
   
   return (
-    <div>
-      {console.log("user---", user)}
-      <div className='my-5'>
+    <div className="my-10 flex flex-col gap-y-6 rounded-md border-[1px] border-richblack-700 bg-richblack-800 p-8 px-12">
+      <div className='my-5 text-lg font-semibold text-richblack-5'>
         Personal Information
       </div>
       <div className='flex flex-col gap-4'>
-        <div className='flex justify-between'>
-          <div>
+        <div className='flex justify-between gap-3 flex-wrap'>
+          <div className="flex flex-col gap-2 lg:w-[48%]">
             <label htmlFor="firstName" className='me-3'>First Name</label>
             <input type="text" 
             value={personalInformation.firstName}
             name={'firstName'}
             onChange={handleChange}/>
           </div>
-          <div>
+          <div className="flex flex-col gap-2 lg:w-[48%]">
             <label htmlFor="lastName" className='me-3'>Last Name</label>
             <input type="text" 
             value={personalInformation.lastName}
@@ -70,15 +69,15 @@ const EditProfile = () => {
             onChange={handleChange}/>
           </div>
         </div>
-        <div className='flex justify-between'>
-          <div>
+        <div className='flex justify-between flex-wrap'>
+          <div className="flex flex-col gap-2 lg:w-[48%]">
             <label htmlFor="DateOfBirth" className='me-2'>Date of Birth</label>
             <input type="date" 
             value={personalInformation.dateOfBirth} 
             onChange={handleChange}
             name='dateOfBirth'/>
           </div>
-          <div>
+          <div className="flex flex-col gap-2 lg:w-[48%]">
             <label htmlFor="Gender" className='me-2'>Gender</label>
             <select 
             className='w-[26rem]' 
@@ -93,8 +92,8 @@ const EditProfile = () => {
             </select>
           </div>
         </div>
-        <div className='flex justify-between'>
-          <div>
+        <div className='flex justify-between flex-wrap'>
+          <div className="flex flex-col gap-2 lg:w-[48%]">
             <label htmlFor="contactNumber" className='me-3'>Contact Number</label>
             <input type="number"
             name='contactNumber'
@@ -102,7 +101,7 @@ const EditProfile = () => {
             value={personalInformation.contactNumber}
             placeholder='Enter Your Contact Number' />
           </div>
-          <div>
+          <div className="flex flex-col gap-2 lg:w-[48%]">
             <label htmlFor="about" className='me-3'>About</label>
             <input type="text" 
             name='about'
