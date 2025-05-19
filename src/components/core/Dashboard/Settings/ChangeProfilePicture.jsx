@@ -51,7 +51,7 @@ const ChangeProfilePicture = () => {
                   Select
                 </button>
               </span>
-              <button className='cursor-pointer text-lg text-richblack-900 bg-yellow-100 font-semibold rounded-md px-3 py-1' onClick={submitHandler}>
+              <button className='cursor-pointer text-lg text-richblack-900 bg-yellow-50 font-semibold rounded-md px-3 py-1' onClick={submitHandler}>
                 Upload
               </button>
             </div>
