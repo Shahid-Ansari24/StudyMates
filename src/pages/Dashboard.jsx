@@ -18,7 +18,7 @@ const Dashboard = () => {
   return (
     <div className='relative flex min-h[calc(100vh-3.5rem)]'>
       <Sidebar />
-      <div className='h-[calc(100vh-3.5rem)] overflow-auto grow pt-10 ml-12'>
+      <div className='scroll-area h-[calc(100vh-3.5rem)] overflow-auto grow pt-10 ml-12'>
         <div className='mx-auto w-11/12 py-10 mt-5'>
           <Outlet />
         </div>
