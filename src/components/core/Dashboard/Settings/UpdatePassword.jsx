@@ -2,22 +2,35 @@ import React, {useState} from 'react'
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai"
 import { useNavigate } from 'react-router-dom';
 import IconBtn from '../../../common/IconBtn';
+import { useSelector } from 'react-redux';
+import toast from "react-hot-toast";
+import { changePassword } from '../../../../services/operation/SettingAPI';
+
+
 
 const UpdatePassword = () => {
   const [showOldPassword, setShowOldPassword] = useState(false);
   const [showNewPassword, setShowNewPassword] = useState(false);
   const [updatePasswordData, setUpdatePasswordData] = useState({
     oldPassword: '',
-    newPassword: ''
+    newPassword: '',
   })
+  const { user } = useSelector((state) => state.profile)
+  const { token } = useSelector((state) => state.auth)
   const navigate = useNavigate();
 
-  const handleSubmit = () => {
-    console.log("handle submit called");
+  const handleSubmit = async () => {
+    const {oldPassword, newPassword} = updatePasswordData;
+    if(oldPassword === newPassword) {
+      toast.error("New password is same as old password");
+      return;
+    }
+
+    await changePassword({oldPassword, newPassword, confirmPassword: newPassword}, token)
   }
   return (
     <>
-    <form onSubmit={handleSubmit} className="my-10 flex flex-col gap-y-6 rounded-md border-[1px] border-richblack-700 bg-richblack-800 p-8 px-12">
+    <form className="my-10 flex flex-col gap-y-6 rounded-md border-[1px] border-richblack-700 bg-richblack-800 p-8 px-12">
       <div>
         <h2 className="text-lg font-semibold text-richblack-5 mb-2">Password</h2>
         <div className="flex flex-col gap-5 lg:flex-row">
@@ -80,7 +93,7 @@ const UpdatePassword = () => {
         >
           Cancel
         </button>
-        <IconBtn type="submit" text="Update" customClasses="text-center font-semibold px-6 py-3 rounded-md font-bold bg-yellow-50 text-black ms-2" />
+        <IconBtn type="submit" onClick={handleSubmit} text="Update" customClasses="text-center font-semibold px-6 py-3 rounded-md font-bold bg-yellow-50 text-black ms-2" />
       </div>
     </form>
   </>

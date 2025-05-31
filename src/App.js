@@ -17,6 +17,7 @@ import Settings from './components/core/Dashboard/Settings/index';
 import EnrolledCourses from './components/core/Dashboard/EnrolledCourses';
 import Cart from './components/core/Dashboard/Cart/index';
 import Instructor from './components/core/Dashboard/InstructorDashboard/Instructor';
+import Footer from './components/common/Footer';
 
 function App() {
   return (
@@ -110,6 +111,8 @@ function App() {
         }/>
 
       </Routes>
+
+      <Footer/>
     </div>
   );
 }

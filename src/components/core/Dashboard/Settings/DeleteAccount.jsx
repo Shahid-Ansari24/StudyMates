@@ -1,9 +1,17 @@
 import React from 'react'
 import { FiTrash2 } from "react-icons/fi"
+import { useSelector } from 'react-redux'
+import { deleteAccount } from '../../../../services/operation/SettingAPI'
 
 const DeleteAccount = () => {
-  const handleDeleteAccount = () => {
-    console.log("handle delete account called")
+  const { token } = useSelector(state => state.auth);
+
+  const handleDeleteAccount = async () => {
+    const isConfirm = window.confirm("Are you sure you want to delete your account?");
+
+    if(isConfirm) {
+      await deleteAccount(token);
+    }
   }
   return (
     <>

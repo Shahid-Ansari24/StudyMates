@@ -279,7 +279,7 @@ exports.changePassword = async( req, res ) => {
             });
         }
 
-        const verifiedPassword = await bcrypt.verify(oldPassword, userDetails.password);
+        const verifiedPassword = await bcrypt.compare(oldPassword, userDetails.password);
 
         if(!verifiedPassword) {
             return res.status(400).json({
