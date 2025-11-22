@@ -18,6 +18,7 @@ import EnrolledCourses from './components/core/Dashboard/EnrolledCourses';
 import Cart from './components/core/Dashboard/Cart/index';
 import Instructor from './components/core/Dashboard/InstructorDashboard/Instructor';
 import Footer from './components/common/Footer';
+import AddCourse from './components/core/Dashboard/AddCourse/index';
 
 function App() {
   return (
@@ -98,7 +99,10 @@ function App() {
             element={
               <Instructor/>
             }/>
-          
+            <Route path='/Dashboard/Add-Course'
+            element={
+              <AddCourse/>
+            } />
         </Route>
 
 
